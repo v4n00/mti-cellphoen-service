@@ -298,6 +298,26 @@ namespace Cellphone_Service
         }
 
         #endregion
+
+        #region Status Strip Menu
+
+        private void ReloadBtn_Click(object sender, EventArgs e)
+        {
+            DisplayClients();
+        }
+
+        private void ExportReportBtn_Click(object sender, EventArgs e)
+        {
+            //TODO
+        }
+
+        private void ViewStatisticsBtn_Click(object sender, EventArgs e)
+        {
+            //TODO
+        }
+
+        #endregion
+
     }
 
     // got this from https://stackoverflow.com/questions/8308258/expand-selected-node-after-refresh-treeview-in-c-sharp
