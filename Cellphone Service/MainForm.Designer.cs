@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.ClientsTreeView = new System.Windows.Forms.TreeView();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.reloadViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serializeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,28 +47,46 @@
             this.DeleteClientBtn = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.DeleteExtraOptionBtn = new System.Windows.Forms.Button();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.TotalClientsStrip = new System.Windows.Forms.ToolStripStatusLabel();
-            this.TotalOptionsStrip = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.ReloadBtn = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.ExportReportBtn = new System.Windows.Forms.ToolStripButton();
             this.ViewStatisticsBtn = new System.Windows.Forms.ToolStripButton();
+            this.TotalClientsStrip = new System.Windows.Forms.ToolStripStatusLabel();
+            this.TotalOptionsStrip = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.addClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ClientsTreeView
             // 
+            this.ClientsTreeView.ContextMenuStrip = this.contextMenuStrip;
             this.ClientsTreeView.Location = new System.Drawing.Point(8, 196);
             this.ClientsTreeView.Name = "ClientsTreeView";
-            this.ClientsTreeView.Size = new System.Drawing.Size(358, 326);
+            this.ClientsTreeView.Size = new System.Drawing.Size(310, 326);
             this.ClientsTreeView.TabIndex = 0;
             this.ClientsTreeView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.ClientsTreeView_NodeMouseClick);
             this.ClientsTreeView.Leave += new System.EventHandler(this.ClientsTreeView_Leave);
+            // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reloadViewToolStripMenuItem,
+            this.addClientToolStripMenuItem});
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(181, 70);
+            // 
+            // reloadViewToolStripMenuItem
+            // 
+            this.reloadViewToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reloadViewToolStripMenuItem.Image")));
+            this.reloadViewToolStripMenuItem.Name = "reloadViewToolStripMenuItem";
+            this.reloadViewToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reloadViewToolStripMenuItem.Text = "Reload View";
+            this.reloadViewToolStripMenuItem.Click += new System.EventHandler(this.reloadViewToolStripMenuItem_Click);
             // 
             // menuStrip
             // 
@@ -74,7 +95,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(383, 24);
+            this.menuStrip.Size = new System.Drawing.Size(333, 24);
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -165,7 +186,7 @@
             this.groupBox1.Controls.Add(this.EditClientBtn);
             this.groupBox1.Location = new System.Drawing.Point(6, 52);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(360, 50);
+            this.groupBox1.Size = new System.Drawing.Size(312, 50);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Client Management";
@@ -188,7 +209,7 @@
             this.groupBox2.Controls.Add(this.EditExtraOptionBtn);
             this.groupBox2.Location = new System.Drawing.Point(6, 108);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(360, 82);
+            this.groupBox2.Size = new System.Drawing.Size(312, 82);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Extra Option Management";
@@ -204,52 +225,19 @@
             this.DeleteExtraOptionBtn.UseVisualStyleBackColor = true;
             this.DeleteExtraOptionBtn.Click += new System.EventHandler(this.DeleteExtraOptionBtn_Click);
             // 
-            // statusStrip
+            // toolStrip
             // 
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TotalClientsStrip,
-            this.TotalOptionsStrip});
-            this.statusStrip.Location = new System.Drawing.Point(0, 541);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(383, 22);
-            this.statusStrip.TabIndex = 12;
-            this.statusStrip.Text = "statusStrip1";
-            // 
-            // TotalClientsStrip
-            // 
-            this.TotalClientsStrip.Name = "TotalClientsStrip";
-            this.TotalClientsStrip.Size = new System.Drawing.Size(83, 17);
-            this.TotalClientsStrip.Text = "Total Clients: 0";
-            // 
-            // TotalOptionsStrip
-            // 
-            this.TotalOptionsStrip.Name = "TotalOptionsStrip";
-            this.TotalOptionsStrip.Size = new System.Drawing.Size(89, 17);
-            this.TotalOptionsStrip.Text = "Total Options: 0";
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.BackColor = System.Drawing.SystemColors.Window;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ReloadBtn,
+            this.toolStrip.BackColor = System.Drawing.SystemColors.Window;
+            this.toolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ExportReportBtn,
             this.ViewStatisticsBtn});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(383, 25);
-            this.toolStrip1.TabIndex = 13;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // ReloadBtn
-            // 
-            this.ReloadBtn.Image = ((System.Drawing.Image)(resources.GetObject("ReloadBtn.Image")));
-            this.ReloadBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ReloadBtn.Name = "ReloadBtn";
-            this.ReloadBtn.Size = new System.Drawing.Size(63, 22);
-            this.ReloadBtn.Text = "Reload";
-            this.ReloadBtn.Click += new System.EventHandler(this.ReloadBtn_Click);
+            this.toolStrip.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip.Name = "toolStrip";
+            this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.toolStrip.Size = new System.Drawing.Size(333, 25);
+            this.toolStrip.TabIndex = 13;
+            this.toolStrip.Text = "toolStrip1";
             // 
             // ExportReportBtn
             // 
@@ -269,31 +257,68 @@
             this.ViewStatisticsBtn.Text = "View Statistics";
             this.ViewStatisticsBtn.Click += new System.EventHandler(this.ViewStatisticsBtn_Click);
             // 
+            // TotalClientsStrip
+            // 
+            this.TotalClientsStrip.Name = "TotalClientsStrip";
+            this.TotalClientsStrip.Size = new System.Drawing.Size(83, 17);
+            this.TotalClientsStrip.Text = "Total Clients: 0";
+            // 
+            // TotalOptionsStrip
+            // 
+            this.TotalOptionsStrip.Name = "TotalOptionsStrip";
+            this.TotalOptionsStrip.Size = new System.Drawing.Size(89, 17);
+            this.TotalOptionsStrip.Text = "Total Options: 0";
+            this.TotalOptionsStrip.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // statusStrip
+            // 
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TotalClientsStrip,
+            this.TotalOptionsStrip});
+            this.statusStrip.Location = new System.Drawing.Point(0, 541);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(333, 22);
+            this.statusStrip.Stretch = false;
+            this.statusStrip.TabIndex = 12;
+            this.statusStrip.Text = "statusStrip1";
+            // 
+            // addClientToolStripMenuItem
+            // 
+            this.addClientToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addClientToolStripMenuItem.Image")));
+            this.addClientToolStripMenuItem.Name = "addClientToolStripMenuItem";
+            this.addClientToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addClientToolStripMenuItem.Text = "Add Client";
+            this.addClientToolStripMenuItem.Click += new System.EventHandler(this.addClientToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(383, 563);
-            this.Controls.Add(this.toolStrip1);
+            this.ClientSize = new System.Drawing.Size(333, 563);
+            this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ClientsTreeView);
             this.Controls.Add(this.menuStrip);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MainForm";
-            this.Text = "Cellphone Service Customer Management";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.Text = "Customer Management";
+            this.contextMenuStrip.ResumeLayout(false);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -316,13 +341,15 @@
         private System.Windows.Forms.Button DeleteClientBtn;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button DeleteExtraOptionBtn;
-        private System.Windows.Forms.StatusStrip statusStrip;
-        private System.Windows.Forms.ToolStripStatusLabel TotalClientsStrip;
-        private System.Windows.Forms.ToolStripStatusLabel TotalOptionsStrip;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton ReloadBtn;
+        private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripButton ExportReportBtn;
         private System.Windows.Forms.ToolStripButton ViewStatisticsBtn;
+        private System.Windows.Forms.ToolStripStatusLabel TotalClientsStrip;
+        private System.Windows.Forms.ToolStripStatusLabel TotalOptionsStrip;
+        private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem reloadViewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addClientToolStripMenuItem;
     }
 }
 

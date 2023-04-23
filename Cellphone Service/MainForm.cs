@@ -301,11 +301,6 @@ namespace Cellphone_Service
 
         #region Status Strip Menu
 
-        private void ReloadBtn_Click(object sender, EventArgs e)
-        {
-            DisplayClients();
-        }
-
         private void ExportReportBtn_Click(object sender, EventArgs e)
         {
             //TODO
@@ -318,6 +313,26 @@ namespace Cellphone_Service
 
         #endregion
 
+        #region Context Strip Menu
+
+        private void reloadViewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DisplayClients();
+        }
+
+        private void addClientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Client client = new Client();
+            AddEditClientForm form = new AddEditClientForm(client);
+            if (DialogResult.OK == form.ShowDialog())
+            {
+                Clients.Add(client);
+                DisplayClients();
+                setAllButtons(false);
+            }
+        }
+
+        #endregion
     }
 
     // got this from https://stackoverflow.com/questions/8308258/expand-selected-node-after-refresh-treeview-in-c-sharp
