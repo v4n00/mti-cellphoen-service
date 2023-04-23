@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Client.cs" />
+    <Compile Include="Classes\ExtraOption.cs" />
+    <Compile Include="Classes\Subscription.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
