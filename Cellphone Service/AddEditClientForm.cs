@@ -29,24 +29,17 @@ namespace Cellphone_Service
 
         private void AddEditClientForm_Load(object sender, EventArgs e)
         {
-            
+            if(_client == null)
+                _client = new Client();
+            BoxName.Text = _client.Name;
+            BoxSubscription.SelectedIndex = (int)_client.Subscription.SubscriptionType;
+            BoxClientType.SelectedIndex = (int)_client.Subscription.ClientType;
         }
 
-        private void AddBtn_Click(object sender, EventArgs e)
+        private void SaveBtn_Click(object sender, EventArgs e)
         {
             _client.Name = BoxName.Text;
             _client.Subscription = new Subscription((_SubscriptionType)BoxSubscription.SelectedItem, (_ClientType)BoxClientType.SelectedItem);
-            _client.Update();
-        }
-
-        private void CancelBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BoxName_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

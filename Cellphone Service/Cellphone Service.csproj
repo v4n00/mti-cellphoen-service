@@ -52,6 +52,12 @@
     <Compile Include="AddEditClientForm.Designer.cs">
       <DependentUpon>AddEditClientForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddEditExtraOptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditExtraOptionForm.Designer.cs">
+      <DependentUpon>AddEditExtraOptionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Client.cs" />
     <Compile Include="Classes\ExtraOption.cs" />
     <Compile Include="Classes\Subscription.cs" />
@@ -65,6 +71,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddEditClientForm.resx">
       <DependentUpon>AddEditClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEditExtraOptionForm.resx">
+      <DependentUpon>AddEditExtraOptionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

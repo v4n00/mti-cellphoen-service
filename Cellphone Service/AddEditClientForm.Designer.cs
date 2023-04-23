@@ -29,22 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddEditClientForm));
             this.label1 = new System.Windows.Forms.Label();
             this.BoxName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.BoxSubscription = new System.Windows.Forms.ComboBox();
             this.CancelBtn = new System.Windows.Forms.Button();
-            this.AddBtn = new System.Windows.Forms.Button();
-            this.subscriptionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.SaveBtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.BoxClientType = new System.Windows.Forms.ComboBox();
+            this.subscriptionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.subscriptionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 20);
+            this.label1.Location = new System.Drawing.Point(9, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 13);
             this.label1.TabIndex = 0;
@@ -56,7 +57,6 @@
             this.BoxName.Name = "BoxName";
             this.BoxName.Size = new System.Drawing.Size(177, 20);
             this.BoxName.TabIndex = 1;
-            this.BoxName.TextChanged += new System.EventHandler(this.BoxName_TextChanged);
             // 
             // label2
             // 
@@ -85,22 +85,17 @@
             this.CancelBtn.TabIndex = 4;
             this.CancelBtn.Text = "Cancel";
             this.CancelBtn.UseVisualStyleBackColor = true;
-            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
-            // AddBtn
+            // SaveBtn
             // 
-            this.AddBtn.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.AddBtn.Location = new System.Drawing.Point(155, 124);
-            this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(75, 23);
-            this.AddBtn.TabIndex = 5;
-            this.AddBtn.Text = "Add";
-            this.AddBtn.UseVisualStyleBackColor = true;
-            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
-            // 
-            // subscriptionBindingSource
-            // 
-            this.subscriptionBindingSource.DataSource = typeof(Cellphone_Service.Classes.Subscription);
+            this.SaveBtn.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.SaveBtn.Location = new System.Drawing.Point(155, 124);
+            this.SaveBtn.Name = "SaveBtn";
+            this.SaveBtn.Size = new System.Drawing.Size(75, 23);
+            this.SaveBtn.TabIndex = 5;
+            this.SaveBtn.Text = "Save";
+            this.SaveBtn.UseVisualStyleBackColor = true;
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // label3
             // 
@@ -120,6 +115,10 @@
             this.BoxClientType.Size = new System.Drawing.Size(177, 21);
             this.BoxClientType.TabIndex = 7;
             // 
+            // subscriptionBindingSource
+            // 
+            this.subscriptionBindingSource.DataSource = typeof(Cellphone_Service.Classes.Subscription);
+            // 
             // AddEditClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -127,14 +126,15 @@
             this.ClientSize = new System.Drawing.Size(268, 159);
             this.Controls.Add(this.BoxClientType);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.AddBtn);
+            this.Controls.Add(this.SaveBtn);
             this.Controls.Add(this.CancelBtn);
             this.Controls.Add(this.BoxSubscription);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BoxName);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddEditClientForm";
-            this.Text = "AddEditClientForm";
+            this.Text = "Add / Edit Client";
             this.Load += new System.EventHandler(this.AddEditClientForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.subscriptionBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -149,7 +149,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox BoxSubscription;
         private System.Windows.Forms.Button CancelBtn;
-        private System.Windows.Forms.Button AddBtn;
+        private System.Windows.Forms.Button SaveBtn;
         private System.Windows.Forms.BindingSource subscriptionBindingSource;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox BoxClientType;
