@@ -16,7 +16,6 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
  * Add data validation for the add edit forms
  * Implement Alt shorcuts (alt a for add alt d for delete alt e for edit)
  * Add option to export to text file
- * Add ToolStrip, StatusStrip, ContextMenuStrip
  * Add chart to View Statistics button
  * Implement Database for persistent data
  * Implement a UserControl? check requirements
@@ -303,7 +302,10 @@ namespace Cellphone_Service
 
         private void ExportReportBtn_Click(object sender, EventArgs e)
         {
-            //TODO
+            if(saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                //TODO
+            }
         }
 
         private void ViewStatisticsBtn_Click(object sender, EventArgs e)

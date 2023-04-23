@@ -54,6 +54,7 @@
             this.TotalOptionsStrip = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.addClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.contextMenuStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -78,13 +79,13 @@
             this.reloadViewToolStripMenuItem,
             this.addClientToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip.Size = new System.Drawing.Size(139, 48);
             // 
             // reloadViewToolStripMenuItem
             // 
             this.reloadViewToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reloadViewToolStripMenuItem.Image")));
             this.reloadViewToolStripMenuItem.Name = "reloadViewToolStripMenuItem";
-            this.reloadViewToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reloadViewToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.reloadViewToolStripMenuItem.Text = "Reload View";
             this.reloadViewToolStripMenuItem.Click += new System.EventHandler(this.reloadViewToolStripMenuItem_Click);
             // 
@@ -286,9 +287,13 @@
             // 
             this.addClientToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addClientToolStripMenuItem.Image")));
             this.addClientToolStripMenuItem.Name = "addClientToolStripMenuItem";
-            this.addClientToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addClientToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.addClientToolStripMenuItem.Text = "Add Client";
             this.addClientToolStripMenuItem.Click += new System.EventHandler(this.addClientToolStripMenuItem_Click);
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.Filter = "Text Files|*.txt";
             // 
             // MainForm
             // 
@@ -350,6 +355,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem reloadViewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addClientToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }
 
