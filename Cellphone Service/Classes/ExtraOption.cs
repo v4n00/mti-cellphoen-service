@@ -9,5 +9,17 @@ namespace Cellphone_Service.Classes
     [Serializable]
     public class ExtraOption
     {
+        public string Name { get; set; }
+        public double Price { get; set; }
+        public string Description { get; set; }
+
+        public ExtraOption() { }
+
+        public ExtraOption(string name, double price, string description)
+        {
+            Name = name;
+            Price = price;
+            Description = description;
+        }
     }
 }
