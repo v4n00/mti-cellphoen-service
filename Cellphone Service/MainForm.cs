@@ -12,6 +12,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
+/*TODO:
+ * Add data validation for the add edit forms
+ * Implement Alt shorcuts (alt a for add alt d for delete alt e for edit)
+ * Add option to export to text file
+ * Add ToolStrip, StatusStrip, ContextMenuStrip
+ * Add chart to View Statistics button
+ * Implement Database for persistent data
+ * Implement a UserControl? check requirements
+ * Data Binding
+*/
+
 namespace Cellphone_Service
 {
     public partial class MainForm : Form
@@ -159,6 +170,8 @@ namespace Cellphone_Service
             var savedExpansionState = ClientsTreeView.Nodes.GetExpansionState();
             ClientsTreeView.Nodes.Clear();
             Clients.Sort();
+            int totalOptions = 0;
+
             for (int i = 0; i < Clients.Count; i++)
             {
                 Clients[i].Update();
@@ -185,12 +198,16 @@ namespace Cellphone_Service
                         nawd.Nodes.Add(_price);
                         nawd.Tag = Clients[i].ExtraOptions[j];
                         _extraOptions.Nodes.Add(nawd);
+                        totalOptions++;
                     }
                     node.Nodes.Add(_extraOptions);
                 }
                 ClientsTreeView.Nodes.Add(node);
             }
             ClientsTreeView.Nodes.SetExpansionState(savedExpansionState);
+
+            TotalClientsStrip.Text = "Total Clients: " + Clients.Count;
+            TotalOptionsStrip.Text = "Total Options: " + totalOptions;
         }
 
         private void ClientsTreeView_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
