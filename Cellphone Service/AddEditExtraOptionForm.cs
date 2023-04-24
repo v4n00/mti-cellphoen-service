@@ -44,5 +44,31 @@ namespace Cellphone_Service
             _extraOption.Price = (double)BoxPrice.Value;
             _extraOption.Description = BoxDescription.Text;
         }
+
+        private void BoxName_Validated(object sender, EventArgs e)
+        {
+            //errorProvider.SetError(BoxName, String.Empty);
+            //errorProvider.SetError(BoxDescription, String.Empty);
+            //errorProvider.SetError(BoxPrice, String.Empty);
+        }
+
+        private void BoxName_Validating(object sender, CancelEventArgs e)
+        {
+            //if (string.IsNullOrEmpty(BoxName.Text))
+            //{
+            //    errorProvider.SetError(BoxName, "Please enter a name!");
+            //    e.Cancel = true;
+            //}
+            //if (string.IsNullOrEmpty(BoxDescription.Text))
+            //{
+            //    errorProvider.SetError(BoxDescription, "Please enter a description!");
+            //    e.Cancel = true;
+            //}
+            //if (BoxPrice.Value == 0)
+            //{
+            //    errorProvider.SetError(BoxPrice, "Please enter a valid price!");
+            //    e.Cancel = true;
+            //}
+        }
     }
 }

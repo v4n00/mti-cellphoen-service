@@ -53,7 +53,7 @@ namespace Cellphone_Service
         private void EditClientBtn_Click(object sender, EventArgs e)
         {
             TreeNode node = ClientsTreeView.SelectedNode;
-            if (node != null)
+            if (node != null && node.GetType() == typeof(Client))
             {
                 Client client = (Client)node.Tag;
                 AddEditClientForm form = new AddEditClientForm(client);
@@ -73,7 +73,7 @@ namespace Cellphone_Service
         private void DeleteClientBtn_Click(object sender, EventArgs e)
         {
             TreeNode node = ClientsTreeView.SelectedNode;
-            if (node != null)
+            if (node != null && node.GetType() == typeof(Client))
             {
                 Client client = (Client)node.Tag;
                 Clients.Remove(client);
@@ -103,7 +103,7 @@ namespace Cellphone_Service
         private void AddExtraOptionBtn_Click(object sender, EventArgs e)
         {
             TreeNode node = ClientsTreeView.SelectedNode;
-            if (node != null)
+            if (node != null && node.GetType() == typeof(Client))
             {
                 Client client = (Client)node.Tag;
                 ExtraOption extraOption = new ExtraOption();
@@ -120,7 +120,7 @@ namespace Cellphone_Service
         private void EditExtraOptionBtn_Click(object sender, EventArgs e)
         {
             TreeNode node = ClientsTreeView.SelectedNode;
-            if (node != null)
+            if (node != null && node.GetType() == typeof(ExtraOption))
             {
                 ExtraOption extraOption = (ExtraOption)node.Tag;
                 AddEditExtraOptionForm form = new AddEditExtraOptionForm(extraOption);
@@ -135,14 +135,17 @@ namespace Cellphone_Service
         private void DeleteExtraOptionBtn_Click(object sender, EventArgs e)
         {
             TreeNode node = ClientsTreeView.SelectedNode;
-            TreeNode parent = ClientsTreeView.SelectedNode.Parent.Parent;
-            if (node != null)
+            if (node.GetType() == typeof(ExtraOption))
             {
-                ExtraOption extraOption = (ExtraOption)node.Tag;
-                Client client = (Client)parent.Tag;
-                client.ExtraOptions.Remove(extraOption);
-                DisplayClients();
-                setAllButtons(false);
+                TreeNode parent = ClientsTreeView.SelectedNode.Parent.Parent;
+                if (node != null && parent.GetType() == typeof(Client))
+                {
+                    ExtraOption extraOption = (ExtraOption)node.Tag;
+                    Client client = (Client)parent.Tag;
+                    client.ExtraOptions.Remove(extraOption);
+                    DisplayClients();
+                    setAllButtons(false);
+                }
             }
         }
 
