@@ -68,7 +68,7 @@
             // 
             this.ClientsTreeView.ContextMenuStrip = this.contextMenuStrip;
             this.ClientsTreeView.Location = new System.Drawing.Point(15, 362);
-            this.ClientsTreeView.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.ClientsTreeView.Margin = new System.Windows.Forms.Padding(6);
             this.ClientsTreeView.Name = "ClientsTreeView";
             this.ClientsTreeView.Size = new System.Drawing.Size(565, 598);
             this.ClientsTreeView.TabIndex = 0;
@@ -150,11 +150,12 @@
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(88, 34);
             this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // AddClientBtn
             // 
             this.AddClientBtn.Location = new System.Drawing.Point(11, 35);
-            this.AddClientBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.AddClientBtn.Margin = new System.Windows.Forms.Padding(6);
             this.AddClientBtn.Name = "AddClientBtn";
             this.AddClientBtn.Size = new System.Drawing.Size(167, 42);
             this.AddClientBtn.TabIndex = 2;
@@ -167,7 +168,7 @@
             // 
             this.AddExtraOptionBtn.Enabled = false;
             this.AddExtraOptionBtn.Location = new System.Drawing.Point(11, 35);
-            this.AddExtraOptionBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.AddExtraOptionBtn.Margin = new System.Windows.Forms.Padding(6);
             this.AddExtraOptionBtn.Name = "AddExtraOptionBtn";
             this.AddExtraOptionBtn.Size = new System.Drawing.Size(145, 96);
             this.AddExtraOptionBtn.TabIndex = 4;
@@ -180,7 +181,7 @@
             // 
             this.EditClientBtn.Enabled = false;
             this.EditClientBtn.Location = new System.Drawing.Point(189, 35);
-            this.EditClientBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.EditClientBtn.Margin = new System.Windows.Forms.Padding(6);
             this.EditClientBtn.Name = "EditClientBtn";
             this.EditClientBtn.Size = new System.Drawing.Size(167, 42);
             this.EditClientBtn.TabIndex = 3;
@@ -193,7 +194,7 @@
             // 
             this.EditExtraOptionBtn.Enabled = false;
             this.EditExtraOptionBtn.Location = new System.Drawing.Point(167, 35);
-            this.EditExtraOptionBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.EditExtraOptionBtn.Margin = new System.Windows.Forms.Padding(6);
             this.EditExtraOptionBtn.Name = "EditExtraOptionBtn";
             this.EditExtraOptionBtn.Size = new System.Drawing.Size(145, 96);
             this.EditExtraOptionBtn.TabIndex = 5;
@@ -208,9 +209,9 @@
             this.groupBox1.Controls.Add(this.AddClientBtn);
             this.groupBox1.Controls.Add(this.EditClientBtn);
             this.groupBox1.Location = new System.Drawing.Point(11, 96);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
             this.groupBox1.Size = new System.Drawing.Size(572, 92);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
@@ -220,7 +221,7 @@
             // 
             this.DeleteClientBtn.Enabled = false;
             this.DeleteClientBtn.Location = new System.Drawing.Point(367, 35);
-            this.DeleteClientBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.DeleteClientBtn.Margin = new System.Windows.Forms.Padding(6);
             this.DeleteClientBtn.Name = "DeleteClientBtn";
             this.DeleteClientBtn.Size = new System.Drawing.Size(167, 42);
             this.DeleteClientBtn.TabIndex = 4;
@@ -235,9 +236,9 @@
             this.groupBox2.Controls.Add(this.AddExtraOptionBtn);
             this.groupBox2.Controls.Add(this.EditExtraOptionBtn);
             this.groupBox2.Location = new System.Drawing.Point(11, 199);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(6);
             this.groupBox2.Size = new System.Drawing.Size(572, 151);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
@@ -247,7 +248,7 @@
             // 
             this.DeleteExtraOptionBtn.Enabled = false;
             this.DeleteExtraOptionBtn.Location = new System.Drawing.Point(323, 35);
-            this.DeleteExtraOptionBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.DeleteExtraOptionBtn.Margin = new System.Windows.Forms.Padding(6);
             this.DeleteExtraOptionBtn.Name = "DeleteExtraOptionBtn";
             this.DeleteExtraOptionBtn.Size = new System.Drawing.Size(145, 96);
             this.DeleteExtraOptionBtn.TabIndex = 10;
@@ -342,7 +343,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";

@@ -392,6 +392,11 @@ namespace Cellphone_Service
         }
 
         #endregion
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new AboutForm().ShowDialog();
+        }
     }
 
     #region Tree View Extension
