@@ -114,6 +114,8 @@
             this.BoxDescription.Name = "BoxDescription";
             this.BoxDescription.Size = new System.Drawing.Size(321, 104);
             this.BoxDescription.TabIndex = 15;
+            this.BoxDescription.Validating += new System.ComponentModel.CancelEventHandler(this.BoxDescription_Validating);
+            this.BoxDescription.Validated += new System.EventHandler(this.BoxDescription_Validated);
             // 
             // BoxPrice
             // 
@@ -136,6 +138,8 @@
             // 
             // errorProvider
             // 
+            this.errorProvider.BlinkRate = 0;
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider.ContainerControl = this;
             // 
             // AddEditExtraOptionForm
@@ -151,8 +155,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BoxName);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddEditExtraOptionForm";
             this.Text = "Add / Edit Extra Option";
             this.Load += new System.EventHandler(this.AddEditExtraOptionForm_Load);

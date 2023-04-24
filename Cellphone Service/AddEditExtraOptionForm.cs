@@ -40,35 +40,46 @@ namespace Cellphone_Service
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            _extraOption.Name = BoxName.Text;
-            _extraOption.Price = (double)BoxPrice.Value;
-            _extraOption.Description = BoxDescription.Text;
+            if (!ValidateChildren())
+            {
+                MessageBox.Show("Error: One or more fields is empty!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult = DialogResult.Cancel;
+                return;
+            }
+            else
+            {
+                _extraOption.Name = BoxName.Text;
+                _extraOption.Price = (double)BoxPrice.Value;
+                _extraOption.Description = BoxDescription.Text;
+            }
         }
 
         private void BoxName_Validated(object sender, EventArgs e)
         {
-            //errorProvider.SetError(BoxName, String.Empty);
-            //errorProvider.SetError(BoxDescription, String.Empty);
-            //errorProvider.SetError(BoxPrice, String.Empty);
+            errorProvider.SetError(BoxName, String.Empty);
         }
 
         private void BoxName_Validating(object sender, CancelEventArgs e)
         {
-            //if (string.IsNullOrEmpty(BoxName.Text))
-            //{
-            //    errorProvider.SetError(BoxName, "Please enter a name!");
-            //    e.Cancel = true;
-            //}
-            //if (string.IsNullOrEmpty(BoxDescription.Text))
-            //{
-            //    errorProvider.SetError(BoxDescription, "Please enter a description!");
-            //    e.Cancel = true;
-            //}
-            //if (BoxPrice.Value == 0)
-            //{
-            //    errorProvider.SetError(BoxPrice, "Please enter a valid price!");
-            //    e.Cancel = true;
-            //}
+            if (string.IsNullOrEmpty(BoxName.Text))
+            {
+                errorProvider.SetError(BoxName, "Please enter a name!");
+                e.Cancel = true;
+            }
+        }
+
+        private void BoxDescription_Validated(object sender, EventArgs e)
+        {
+            errorProvider.SetError(BoxDescription, String.Empty);
+        }
+
+        private void BoxDescription_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(BoxDescription.Text))
+            {
+                errorProvider.SetError(BoxDescription, "Please enter a description!");
+                e.Cancel = true;
+            }
         }
     }
 }

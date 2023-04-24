@@ -13,7 +13,6 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 /*TODO:
- * Add data validation for the add edit forms
  * Add chart to View Statistics button
  * Implement Database for persistent data
  * Implement a UserControl? check requirements
@@ -53,7 +52,7 @@ namespace Cellphone_Service
         private void EditClientBtn_Click(object sender, EventArgs e)
         {
             TreeNode node = ClientsTreeView.SelectedNode;
-            if (node != null && node.GetType() == typeof(Client))
+            if (node != null && node.Tag.GetType() == typeof(Client))
             {
                 Client client = (Client)node.Tag;
                 AddEditClientForm form = new AddEditClientForm(client);
@@ -73,7 +72,7 @@ namespace Cellphone_Service
         private void DeleteClientBtn_Click(object sender, EventArgs e)
         {
             TreeNode node = ClientsTreeView.SelectedNode;
-            if (node != null && node.GetType() == typeof(Client))
+            if (node != null && node.Tag.GetType() == typeof(Client))
             {
                 Client client = (Client)node.Tag;
                 Clients.Remove(client);
@@ -103,7 +102,7 @@ namespace Cellphone_Service
         private void AddExtraOptionBtn_Click(object sender, EventArgs e)
         {
             TreeNode node = ClientsTreeView.SelectedNode;
-            if (node != null && node.GetType() == typeof(Client))
+            if (node != null && node.Tag.GetType() == typeof(Client))
             {
                 Client client = (Client)node.Tag;
                 ExtraOption extraOption = new ExtraOption();
@@ -120,7 +119,7 @@ namespace Cellphone_Service
         private void EditExtraOptionBtn_Click(object sender, EventArgs e)
         {
             TreeNode node = ClientsTreeView.SelectedNode;
-            if (node != null && node.GetType() == typeof(ExtraOption))
+            if (node != null && node.Tag.GetType() == typeof(ExtraOption))
             {
                 ExtraOption extraOption = (ExtraOption)node.Tag;
                 AddEditExtraOptionForm form = new AddEditExtraOptionForm(extraOption);
@@ -135,7 +134,7 @@ namespace Cellphone_Service
         private void DeleteExtraOptionBtn_Click(object sender, EventArgs e)
         {
             TreeNode node = ClientsTreeView.SelectedNode;
-            if (node.GetType() == typeof(ExtraOption))
+            if (node.Tag.GetType() == typeof(ExtraOption))
             {
                 TreeNode parent = ClientsTreeView.SelectedNode.Parent.Parent;
                 if (node != null && parent.GetType() == typeof(Client))
@@ -394,7 +393,6 @@ namespace Cellphone_Service
         }
 
         #endregion
-
     }
 
     #region Tree View Extension

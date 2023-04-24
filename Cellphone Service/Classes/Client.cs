@@ -19,7 +19,7 @@ namespace Cellphone_Service.Classes
         {
             ExtraOptions = new List<ExtraOption>();
             Subscription = new Subscription();
-            Name = "John Doe";                                                                                                                                          
+            Name = "";                                                                                                                                          
         }
 
         public Client(string name, Subscription subscription) : this()
