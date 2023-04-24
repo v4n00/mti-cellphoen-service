@@ -13,7 +13,6 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 /*TODO:
- * Add chart to View Statistics button
  * Implement Database for persistent data
  * Implement a UserControl? check requirements
  * Data Binding? check requirements
@@ -324,7 +323,7 @@ namespace Cellphone_Service
 
         private void ViewStatisticsBtn_Click(object sender, EventArgs e)
         {
-            ChartForm form = new ChartForm();
+            ChartForm form = new ChartForm(Clients);
             form.ShowDialog();
         }
 
