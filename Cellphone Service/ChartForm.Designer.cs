@@ -83,8 +83,11 @@
             this.ClientSize = new System.Drawing.Size(865, 683);
             this.Controls.Add(this.ChangeViewBtn);
             this.Controls.Add(this.chart);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ChartForm";
             this.Text = "Statistics";
             ((System.ComponentModel.ISupportInitialize)(this.chart)).EndInit();
