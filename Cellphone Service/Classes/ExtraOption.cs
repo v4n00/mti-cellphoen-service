@@ -21,5 +21,14 @@ namespace Cellphone_Service.Classes
             Price = price;
             Description = description;
         }
+
+        public override string ToString()
+        {
+            string rez;
+
+            rez = "Extra option - name: " + Name + ", price: " + Price.ToString() + ", description: " + Description;
+
+            return rez;
+        }
     }
 }

@@ -33,6 +33,7 @@
             this.ClientsTreeView = new System.Windows.Forms.TreeView();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.reloadViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serializeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,8 +54,8 @@
             this.TotalClientsStrip = new System.Windows.Forms.ToolStripStatusLabel();
             this.TotalOptionsStrip = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.addClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.ShortcutToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.contextMenuStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -88,6 +89,14 @@
             this.reloadViewToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.reloadViewToolStripMenuItem.Text = "Reload View";
             this.reloadViewToolStripMenuItem.Click += new System.EventHandler(this.reloadViewToolStripMenuItem_Click);
+            // 
+            // addClientToolStripMenuItem
+            // 
+            this.addClientToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addClientToolStripMenuItem.Image")));
+            this.addClientToolStripMenuItem.Name = "addClientToolStripMenuItem";
+            this.addClientToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.addClientToolStripMenuItem.Text = "Add Client";
+            this.addClientToolStripMenuItem.Click += new System.EventHandler(this.addClientToolStripMenuItem_Click);
             // 
             // menuStrip
             // 
@@ -144,6 +153,7 @@
             this.AddClientBtn.Size = new System.Drawing.Size(91, 23);
             this.AddClientBtn.TabIndex = 2;
             this.AddClientBtn.Text = "Add Client";
+            this.ShortcutToolTip.SetToolTip(this.AddClientBtn, "Alt + A");
             this.AddClientBtn.UseVisualStyleBackColor = true;
             this.AddClientBtn.Click += new System.EventHandler(this.AddClientBtn_Click);
             // 
@@ -155,6 +165,7 @@
             this.AddExtraOptionBtn.Size = new System.Drawing.Size(79, 52);
             this.AddExtraOptionBtn.TabIndex = 4;
             this.AddExtraOptionBtn.Text = "Add Extra Option";
+            this.ShortcutToolTip.SetToolTip(this.AddExtraOptionBtn, "Ctrl + Alt + A");
             this.AddExtraOptionBtn.UseVisualStyleBackColor = true;
             this.AddExtraOptionBtn.Click += new System.EventHandler(this.AddExtraOptionBtn_Click);
             // 
@@ -166,6 +177,7 @@
             this.EditClientBtn.Size = new System.Drawing.Size(91, 23);
             this.EditClientBtn.TabIndex = 3;
             this.EditClientBtn.Text = "Edit Client";
+            this.ShortcutToolTip.SetToolTip(this.EditClientBtn, "Alt + E");
             this.EditClientBtn.UseVisualStyleBackColor = true;
             this.EditClientBtn.Click += new System.EventHandler(this.EditClientBtn_Click);
             // 
@@ -177,6 +189,7 @@
             this.EditExtraOptionBtn.Size = new System.Drawing.Size(79, 52);
             this.EditExtraOptionBtn.TabIndex = 5;
             this.EditExtraOptionBtn.Text = "Edit Extra Option";
+            this.ShortcutToolTip.SetToolTip(this.EditExtraOptionBtn, "Ctrl + Alt + E");
             this.EditExtraOptionBtn.UseVisualStyleBackColor = true;
             this.EditExtraOptionBtn.Click += new System.EventHandler(this.EditExtraOptionBtn_Click);
             // 
@@ -200,6 +213,7 @@
             this.DeleteClientBtn.Size = new System.Drawing.Size(91, 23);
             this.DeleteClientBtn.TabIndex = 4;
             this.DeleteClientBtn.Text = "Delete Client";
+            this.ShortcutToolTip.SetToolTip(this.DeleteClientBtn, "Alt + D");
             this.DeleteClientBtn.UseVisualStyleBackColor = true;
             this.DeleteClientBtn.Click += new System.EventHandler(this.DeleteClientBtn_Click);
             // 
@@ -223,6 +237,7 @@
             this.DeleteExtraOptionBtn.Size = new System.Drawing.Size(79, 52);
             this.DeleteExtraOptionBtn.TabIndex = 10;
             this.DeleteExtraOptionBtn.Text = "Delete Extra Option";
+            this.ShortcutToolTip.SetToolTip(this.DeleteExtraOptionBtn, "Ctrl + Alt + D");
             this.DeleteExtraOptionBtn.UseVisualStyleBackColor = true;
             this.DeleteExtraOptionBtn.Click += new System.EventHandler(this.DeleteExtraOptionBtn_Click);
             // 
@@ -283,17 +298,14 @@
             this.statusStrip.TabIndex = 12;
             this.statusStrip.Text = "statusStrip1";
             // 
-            // addClientToolStripMenuItem
-            // 
-            this.addClientToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addClientToolStripMenuItem.Image")));
-            this.addClientToolStripMenuItem.Name = "addClientToolStripMenuItem";
-            this.addClientToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.addClientToolStripMenuItem.Text = "Add Client";
-            this.addClientToolStripMenuItem.Click += new System.EventHandler(this.addClientToolStripMenuItem_Click);
-            // 
             // saveFileDialog
             // 
+            this.saveFileDialog.FileName = "report";
             this.saveFileDialog.Filter = "Text Files|*.txt";
+            // 
+            // ShortcutToolTip
+            // 
+            this.ShortcutToolTip.ToolTipTitle = "Shortcut";
             // 
             // MainForm
             // 
@@ -309,12 +321,14 @@
             this.Controls.Add(this.menuStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Customer Management";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.contextMenuStrip.ResumeLayout(false);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
@@ -356,6 +370,7 @@
         private System.Windows.Forms.ToolStripMenuItem reloadViewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addClientToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.ToolTip ShortcutToolTip;
     }
 }
 

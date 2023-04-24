@@ -14,18 +14,18 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 /*TODO:
  * Add data validation for the add edit forms
- * Implement Alt shorcuts (alt a for add alt d for delete alt e for edit)
- * Add option to export to text file
  * Add chart to View Statistics button
  * Implement Database for persistent data
  * Implement a UserControl? check requirements
- * Data Binding
+ * Data Binding? check requirements
 */
 
 namespace Cellphone_Service
 {
     public partial class MainForm : Form
     {
+        #region Form Loading
+
         public List<Client> Clients;
 
         public MainForm()
@@ -33,6 +33,8 @@ namespace Cellphone_Service
             InitializeComponent();
             Clients = new List<Client>();
         }
+
+        #endregion
 
         #region Client Buttons
 
@@ -304,7 +306,17 @@ namespace Cellphone_Service
         {
             if(saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                //TODO
+                StreamWriter sr = new StreamWriter(saveFileDialog.FileName);
+                foreach (var client in Clients)
+                {
+                    sr.WriteLine(client.ToString());
+                    sr.Write("\n");
+                }
+                if(Clients.Count == 0)
+                {
+                    sr.WriteLine("No clients found");
+                }
+                sr.Close();
             }
         }
 
@@ -335,7 +347,53 @@ namespace Cellphone_Service
         }
 
         #endregion
+
+        #region Alt Shortcuts
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Alt && e.Control && e.KeyCode == Keys.A)
+            {
+                AddExtraOptionBtn_Click(sender, e);
+                return;
+            }
+
+            if (e.Alt && e.Control && e.KeyCode == Keys.E)
+            {
+                EditExtraOptionBtn_Click(sender, e);
+                return;
+            }
+
+            if (e.Alt && e.Control && e.KeyCode == Keys.D)
+            {
+                DeleteExtraOptionBtn_Click(sender, e);
+                return;
+            }
+
+            if (e.Alt && e.KeyCode == Keys.A)
+            {
+                AddClientBtn_Click(sender, e);
+                return;
+            }
+
+            if (e.Alt && e.KeyCode == Keys.E)
+            {
+                EditClientBtn_Click(sender, e);
+                return;
+            }
+
+            if (e.Alt && e.KeyCode == Keys.D)
+            {
+                DeleteClientBtn_Click(sender, e);
+                return;
+            }
+        }
+
+        #endregion
+
     }
+
+    #region Tree View Extension
 
     // got this from https://stackoverflow.com/questions/8308258/expand-selected-node-after-refresh-treeview-in-c-sharp
     public static class TreeViewExtensions
@@ -370,4 +428,6 @@ namespace Cellphone_Service
             }
         }
     }
+
+    #endregion
 }

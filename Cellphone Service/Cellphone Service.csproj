@@ -58,6 +58,12 @@
     <Compile Include="AddEditExtraOptionForm.Designer.cs">
       <DependentUpon>AddEditExtraOptionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChartForm.Designer.cs">
+      <DependentUpon>ChartForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Client.cs" />
     <Compile Include="Classes\ExtraOption.cs" />
     <Compile Include="Classes\Subscription.cs" />

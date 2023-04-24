@@ -66,5 +66,15 @@ namespace Cellphone_Service.Classes
                     break;
             }
         }
+
+        public override string ToString()
+        {
+            string rez;
+
+            rez = "Subscription - name: " + Name + ", price: " + Price
+                + ", package: " + SubscriptionType.ToString() + ", client type: " + ClientType.ToString();
+
+            return rez;
+        }
     }
 }

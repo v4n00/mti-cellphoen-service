@@ -50,5 +50,19 @@ namespace Cellphone_Service.Classes
         {
             return Name.CompareTo(other.Name);
         }
+
+        public override string ToString()
+        {
+            string rez;
+
+            rez = "Customer - name: " + Name + ", total bill: " + TotalBill.ToString()
+                + "\n\t" + Subscription.ToString();
+            foreach (ExtraOption extraOption in ExtraOptions)
+            {
+                rez += "\n\t\t" + extraOption.ToString();
+            }
+
+            return rez;
+        }
     }
 }
