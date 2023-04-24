@@ -322,7 +322,8 @@ namespace Cellphone_Service
 
         private void ViewStatisticsBtn_Click(object sender, EventArgs e)
         {
-            //TODO
+            ChartForm form = new ChartForm();
+            form.ShowDialog();
         }
 
         #endregion
