@@ -56,6 +56,9 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.ShortcutToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PrintDocument = new System.Drawing.Printing.PrintDocument();
+            this.PrintPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.contextMenuStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -67,10 +70,9 @@
             // ClientsTreeView
             // 
             this.ClientsTreeView.ContextMenuStrip = this.contextMenuStrip;
-            this.ClientsTreeView.Location = new System.Drawing.Point(15, 362);
-            this.ClientsTreeView.Margin = new System.Windows.Forms.Padding(6);
+            this.ClientsTreeView.Location = new System.Drawing.Point(6, 206);
             this.ClientsTreeView.Name = "ClientsTreeView";
-            this.ClientsTreeView.Size = new System.Drawing.Size(565, 598);
+            this.ClientsTreeView.Size = new System.Drawing.Size(310, 352);
             this.ClientsTreeView.TabIndex = 0;
             this.ClientsTreeView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.ClientsTreeView_NodeMouseClick);
             this.ClientsTreeView.Leave += new System.EventHandler(this.ClientsTreeView_Leave);
@@ -82,13 +84,13 @@
             this.reloadViewToolStripMenuItem,
             this.addClientToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(212, 76);
+            this.contextMenuStrip.Size = new System.Drawing.Size(151, 72);
             // 
             // reloadViewToolStripMenuItem
             // 
             this.reloadViewToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reloadViewToolStripMenuItem.Image")));
             this.reloadViewToolStripMenuItem.Name = "reloadViewToolStripMenuItem";
-            this.reloadViewToolStripMenuItem.Size = new System.Drawing.Size(211, 36);
+            this.reloadViewToolStripMenuItem.Size = new System.Drawing.Size(150, 34);
             this.reloadViewToolStripMenuItem.Text = "Reload View";
             this.reloadViewToolStripMenuItem.Click += new System.EventHandler(this.reloadViewToolStripMenuItem_Click);
             // 
@@ -96,21 +98,19 @@
             // 
             this.addClientToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addClientToolStripMenuItem.Image")));
             this.addClientToolStripMenuItem.Name = "addClientToolStripMenuItem";
-            this.addClientToolStripMenuItem.Size = new System.Drawing.Size(211, 36);
+            this.addClientToolStripMenuItem.Size = new System.Drawing.Size(150, 34);
             this.addClientToolStripMenuItem.Text = "Add Client";
             this.addClientToolStripMenuItem.Click += new System.EventHandler(this.addClientToolStripMenuItem_Click);
             // 
             // menuStrip
             // 
-            this.menuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(28, 28);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Padding = new System.Windows.Forms.Padding(11, 4, 0, 4);
-            this.menuStrip.Size = new System.Drawing.Size(610, 42);
+            this.menuStrip.Size = new System.Drawing.Size(324, 24);
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -119,45 +119,45 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.serializeToolStripMenuItem,
             this.deserializeToolStripMenuItem,
+            this.printToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(62, 34);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // serializeToolStripMenuItem
             // 
             this.serializeToolStripMenuItem.Name = "serializeToolStripMenuItem";
-            this.serializeToolStripMenuItem.Size = new System.Drawing.Size(231, 40);
+            this.serializeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.serializeToolStripMenuItem.Text = "Serialize";
             this.serializeToolStripMenuItem.Click += new System.EventHandler(this.serializeToolStripMenuItem_Click);
             // 
             // deserializeToolStripMenuItem
             // 
             this.deserializeToolStripMenuItem.Name = "deserializeToolStripMenuItem";
-            this.deserializeToolStripMenuItem.Size = new System.Drawing.Size(231, 40);
+            this.deserializeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deserializeToolStripMenuItem.Text = "Deserialize";
             this.deserializeToolStripMenuItem.Click += new System.EventHandler(this.deserializeToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(231, 40);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(88, 34);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // AddClientBtn
             // 
-            this.AddClientBtn.Location = new System.Drawing.Point(11, 35);
-            this.AddClientBtn.Margin = new System.Windows.Forms.Padding(6);
+            this.AddClientBtn.Location = new System.Drawing.Point(6, 19);
             this.AddClientBtn.Name = "AddClientBtn";
-            this.AddClientBtn.Size = new System.Drawing.Size(167, 42);
+            this.AddClientBtn.Size = new System.Drawing.Size(91, 23);
             this.AddClientBtn.TabIndex = 2;
             this.AddClientBtn.Text = "Add Client";
             this.ShortcutToolTip.SetToolTip(this.AddClientBtn, "Alt + A");
@@ -167,10 +167,9 @@
             // AddExtraOptionBtn
             // 
             this.AddExtraOptionBtn.Enabled = false;
-            this.AddExtraOptionBtn.Location = new System.Drawing.Point(11, 35);
-            this.AddExtraOptionBtn.Margin = new System.Windows.Forms.Padding(6);
+            this.AddExtraOptionBtn.Location = new System.Drawing.Point(6, 19);
             this.AddExtraOptionBtn.Name = "AddExtraOptionBtn";
-            this.AddExtraOptionBtn.Size = new System.Drawing.Size(145, 96);
+            this.AddExtraOptionBtn.Size = new System.Drawing.Size(79, 52);
             this.AddExtraOptionBtn.TabIndex = 4;
             this.AddExtraOptionBtn.Text = "Add Extra Option";
             this.ShortcutToolTip.SetToolTip(this.AddExtraOptionBtn, "Ctrl + Alt + A");
@@ -180,10 +179,9 @@
             // EditClientBtn
             // 
             this.EditClientBtn.Enabled = false;
-            this.EditClientBtn.Location = new System.Drawing.Point(189, 35);
-            this.EditClientBtn.Margin = new System.Windows.Forms.Padding(6);
+            this.EditClientBtn.Location = new System.Drawing.Point(103, 19);
             this.EditClientBtn.Name = "EditClientBtn";
-            this.EditClientBtn.Size = new System.Drawing.Size(167, 42);
+            this.EditClientBtn.Size = new System.Drawing.Size(91, 23);
             this.EditClientBtn.TabIndex = 3;
             this.EditClientBtn.Text = "Edit Client";
             this.ShortcutToolTip.SetToolTip(this.EditClientBtn, "Alt + E");
@@ -193,10 +191,9 @@
             // EditExtraOptionBtn
             // 
             this.EditExtraOptionBtn.Enabled = false;
-            this.EditExtraOptionBtn.Location = new System.Drawing.Point(167, 35);
-            this.EditExtraOptionBtn.Margin = new System.Windows.Forms.Padding(6);
+            this.EditExtraOptionBtn.Location = new System.Drawing.Point(91, 19);
             this.EditExtraOptionBtn.Name = "EditExtraOptionBtn";
-            this.EditExtraOptionBtn.Size = new System.Drawing.Size(145, 96);
+            this.EditExtraOptionBtn.Size = new System.Drawing.Size(79, 52);
             this.EditExtraOptionBtn.TabIndex = 5;
             this.EditExtraOptionBtn.Text = "Edit Extra Option";
             this.ShortcutToolTip.SetToolTip(this.EditExtraOptionBtn, "Ctrl + Alt + E");
@@ -208,11 +205,9 @@
             this.groupBox1.Controls.Add(this.DeleteClientBtn);
             this.groupBox1.Controls.Add(this.AddClientBtn);
             this.groupBox1.Controls.Add(this.EditClientBtn);
-            this.groupBox1.Location = new System.Drawing.Point(11, 96);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
+            this.groupBox1.Location = new System.Drawing.Point(6, 62);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox1.Size = new System.Drawing.Size(572, 92);
+            this.groupBox1.Size = new System.Drawing.Size(310, 50);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Client Management";
@@ -220,10 +215,9 @@
             // DeleteClientBtn
             // 
             this.DeleteClientBtn.Enabled = false;
-            this.DeleteClientBtn.Location = new System.Drawing.Point(367, 35);
-            this.DeleteClientBtn.Margin = new System.Windows.Forms.Padding(6);
+            this.DeleteClientBtn.Location = new System.Drawing.Point(200, 19);
             this.DeleteClientBtn.Name = "DeleteClientBtn";
-            this.DeleteClientBtn.Size = new System.Drawing.Size(167, 42);
+            this.DeleteClientBtn.Size = new System.Drawing.Size(91, 23);
             this.DeleteClientBtn.TabIndex = 4;
             this.DeleteClientBtn.Text = "Delete Client";
             this.ShortcutToolTip.SetToolTip(this.DeleteClientBtn, "Alt + D");
@@ -235,11 +229,9 @@
             this.groupBox2.Controls.Add(this.DeleteExtraOptionBtn);
             this.groupBox2.Controls.Add(this.AddExtraOptionBtn);
             this.groupBox2.Controls.Add(this.EditExtraOptionBtn);
-            this.groupBox2.Location = new System.Drawing.Point(11, 199);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(6);
+            this.groupBox2.Location = new System.Drawing.Point(6, 118);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox2.Size = new System.Drawing.Size(572, 151);
+            this.groupBox2.Size = new System.Drawing.Size(310, 82);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Extra Option Management";
@@ -247,10 +239,9 @@
             // DeleteExtraOptionBtn
             // 
             this.DeleteExtraOptionBtn.Enabled = false;
-            this.DeleteExtraOptionBtn.Location = new System.Drawing.Point(323, 35);
-            this.DeleteExtraOptionBtn.Margin = new System.Windows.Forms.Padding(6);
+            this.DeleteExtraOptionBtn.Location = new System.Drawing.Point(176, 19);
             this.DeleteExtraOptionBtn.Name = "DeleteExtraOptionBtn";
-            this.DeleteExtraOptionBtn.Size = new System.Drawing.Size(145, 96);
+            this.DeleteExtraOptionBtn.Size = new System.Drawing.Size(79, 52);
             this.DeleteExtraOptionBtn.TabIndex = 10;
             this.DeleteExtraOptionBtn.Text = "Delete Extra Option";
             this.ShortcutToolTip.SetToolTip(this.DeleteExtraOptionBtn, "Ctrl + Alt + D");
@@ -265,11 +256,11 @@
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ExportReportBtn,
             this.ViewStatisticsBtn});
-            this.toolStrip.Location = new System.Drawing.Point(0, 42);
+            this.toolStrip.Location = new System.Drawing.Point(0, 24);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Padding = new System.Windows.Forms.Padding(0, 0, 4, 0);
-            this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip.Size = new System.Drawing.Size(610, 40);
+            this.toolStrip.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.toolStrip.Size = new System.Drawing.Size(324, 35);
             this.toolStrip.TabIndex = 13;
             this.toolStrip.Text = "toolStrip1";
             // 
@@ -278,7 +269,7 @@
             this.ExportReportBtn.Image = ((System.Drawing.Image)(resources.GetObject("ExportReportBtn.Image")));
             this.ExportReportBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ExportReportBtn.Name = "ExportReportBtn";
-            this.ExportReportBtn.Size = new System.Drawing.Size(171, 34);
+            this.ExportReportBtn.Size = new System.Drawing.Size(111, 32);
             this.ExportReportBtn.Text = "Export Report";
             this.ExportReportBtn.Click += new System.EventHandler(this.ExportReportBtn_Click);
             // 
@@ -287,20 +278,20 @@
             this.ViewStatisticsBtn.Image = ((System.Drawing.Image)(resources.GetObject("ViewStatisticsBtn.Image")));
             this.ViewStatisticsBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ViewStatisticsBtn.Name = "ViewStatisticsBtn";
-            this.ViewStatisticsBtn.Size = new System.Drawing.Size(175, 34);
+            this.ViewStatisticsBtn.Size = new System.Drawing.Size(113, 32);
             this.ViewStatisticsBtn.Text = "View Statistics";
             this.ViewStatisticsBtn.Click += new System.EventHandler(this.ViewStatisticsBtn_Click);
             // 
             // TotalClientsStrip
             // 
             this.TotalClientsStrip.Name = "TotalClientsStrip";
-            this.TotalClientsStrip.Size = new System.Drawing.Size(147, 30);
+            this.TotalClientsStrip.Size = new System.Drawing.Size(83, 17);
             this.TotalClientsStrip.Text = "Total Clients: 0";
             // 
             // TotalOptionsStrip
             // 
             this.TotalOptionsStrip.Name = "TotalOptionsStrip";
-            this.TotalOptionsStrip.Size = new System.Drawing.Size(158, 30);
+            this.TotalOptionsStrip.Size = new System.Drawing.Size(89, 17);
             this.TotalOptionsStrip.Text = "Total Options: 0";
             this.TotalOptionsStrip.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -310,10 +301,9 @@
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TotalClientsStrip,
             this.TotalOptionsStrip});
-            this.statusStrip.Location = new System.Drawing.Point(0, 1000);
+            this.statusStrip.Location = new System.Drawing.Point(0, 561);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Padding = new System.Windows.Forms.Padding(2, 0, 26, 0);
-            this.statusStrip.Size = new System.Drawing.Size(610, 39);
+            this.statusStrip.Size = new System.Drawing.Size(324, 22);
             this.statusStrip.Stretch = false;
             this.statusStrip.TabIndex = 12;
             this.statusStrip.Text = "statusStrip1";
@@ -327,12 +317,35 @@
             // 
             this.ShortcutToolTip.ToolTipTitle = "Shortcut";
             // 
+            // printToolStripMenuItem
+            // 
+            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.printToolStripMenuItem.Text = "Print";
+            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
+            // 
+            // PrintDocument
+            // 
+            this.PrintDocument.DocumentName = "report.rtf";
+            this.PrintDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintDocument_PrintPage);
+            // 
+            // PrintPreviewDialog
+            // 
+            this.PrintPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.PrintPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.PrintPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
+            this.PrintPreviewDialog.Document = this.PrintDocument;
+            this.PrintPreviewDialog.Enabled = true;
+            this.PrintPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("PrintPreviewDialog.Icon")));
+            this.PrintPreviewDialog.Name = "PrintPreviewDialog";
+            this.PrintPreviewDialog.Visible = false;
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(610, 1039);
+            this.ClientSize = new System.Drawing.Size(324, 583);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.groupBox2);
@@ -343,7 +356,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
@@ -392,6 +404,9 @@
         private System.Windows.Forms.ToolStripMenuItem addClientToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.ToolTip ShortcutToolTip;
+        private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
+        private System.Drawing.Printing.PrintDocument PrintDocument;
+        private System.Windows.Forms.PrintPreviewDialog PrintPreviewDialog;
     }
 }
 

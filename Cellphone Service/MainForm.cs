@@ -15,7 +15,6 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 /*TODO:
  * Implement Database for persistent data
  * Implement a UserControl? check requirements
- * Data Binding? check requirements
 */
 
 namespace Cellphone_Service
@@ -294,9 +293,30 @@ namespace Cellphone_Service
             }
         }
 
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new AboutForm().ShowDialog();
+        }
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        Bitmap bmp;
+
+        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Graphics g = this.CreateGraphics();
+            bmp = new Bitmap(this.Size.Width, this.Size.Height, g);
+            Graphics mg = Graphics.FromImage(bmp);
+            mg.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, this.Size);
+            PrintPreviewDialog.ShowDialog();
+        }
+
+        private void PrintDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(bmp, 0, 0);
         }
 
         #endregion
@@ -393,10 +413,6 @@ namespace Cellphone_Service
 
         #endregion
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new AboutForm().ShowDialog();
-        }
     }
 
     #region Tree View Extension
