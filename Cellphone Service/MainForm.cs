@@ -29,6 +29,7 @@ namespace Cellphone_Service
         {
             InitializeComponent();
             Clients = new List<Client>();
+            Deserialize();
         }
 
         #endregion
@@ -272,7 +273,7 @@ namespace Cellphone_Service
             }
         }
 
-        private void deserializeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Deserialize()
         {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream f = null;
@@ -291,6 +292,11 @@ namespace Cellphone_Service
                 if (f != null)
                     f.Close();
             }
+        }
+
+        private void deserializeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Deserialize();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
