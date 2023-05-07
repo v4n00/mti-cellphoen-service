@@ -38,6 +38,7 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serializeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deserializeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddClientBtn = new System.Windows.Forms.Button();
@@ -56,7 +57,6 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.ShortcutToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PrintDocument = new System.Drawing.Printing.PrintDocument();
             this.PrintPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.contextMenuStrip.SuspendLayout();
@@ -129,20 +129,27 @@
             // 
             this.serializeToolStripMenuItem.Name = "serializeToolStripMenuItem";
             this.serializeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.serializeToolStripMenuItem.Text = "Serialize";
+            this.serializeToolStripMenuItem.Text = "Save";
             this.serializeToolStripMenuItem.Click += new System.EventHandler(this.serializeToolStripMenuItem_Click);
             // 
             // deserializeToolStripMenuItem
             // 
             this.deserializeToolStripMenuItem.Name = "deserializeToolStripMenuItem";
             this.deserializeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.deserializeToolStripMenuItem.Text = "Deserialize";
+            this.deserializeToolStripMenuItem.Text = "Load";
             this.deserializeToolStripMenuItem.Click += new System.EventHandler(this.deserializeToolStripMenuItem_Click);
+            // 
+            // printToolStripMenuItem
+            // 
+            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.printToolStripMenuItem.Text = "Print";
+            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -316,13 +323,6 @@
             // ShortcutToolTip
             // 
             this.ShortcutToolTip.ToolTipTitle = "Shortcut";
-            // 
-            // printToolStripMenuItem
-            // 
-            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.printToolStripMenuItem.Text = "Print";
-            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
             // PrintDocument
             // 

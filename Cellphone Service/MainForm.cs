@@ -12,11 +12,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-/*TODO:
- * Implement Database for persistent data
- * Implement a UserControl? check requirements
-*/
-
 namespace Cellphone_Service
 {
     public partial class MainForm : Form
@@ -29,7 +24,7 @@ namespace Cellphone_Service
         {
             InitializeComponent();
             Clients = new List<Client>();
-            Deserialize();
+            Deserialize(true);
         }
 
         #endregion
@@ -273,7 +268,7 @@ namespace Cellphone_Service
             }
         }
 
-        private void Deserialize()
+        private void Deserialize(bool start)
         {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream f = null;
@@ -285,7 +280,10 @@ namespace Cellphone_Service
             }
             catch (IOException ioe)
             {
-                MessageBox.Show(ioe.Message);
+                if(!start)
+                {
+                    MessageBox.Show(ioe.Message);
+                }
             }
             finally
             {
@@ -296,7 +294,7 @@ namespace Cellphone_Service
 
         private void deserializeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Deserialize();
+            Deserialize(false);
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
