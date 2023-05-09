@@ -136,64 +136,64 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HelpForm.cs">
+    <Compile Include="Forms\HelpForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HelpForm.Designer.cs">
+    <Compile Include="Forms\HelpForm.Designer.cs">
       <DependentUpon>HelpForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddEditClientForm.cs">
+    <Compile Include="Forms\AddEditClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddEditClientForm.Designer.cs">
+    <Compile Include="Forms\AddEditClientForm.Designer.cs">
       <DependentUpon>AddEditClientForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddEditExtraOptionForm.cs">
+    <Compile Include="Forms\AddEditExtraOptionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddEditExtraOptionForm.Designer.cs">
+    <Compile Include="Forms\AddEditExtraOptionForm.Designer.cs">
       <DependentUpon>AddEditExtraOptionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChartForm.cs">
+    <Compile Include="Forms\ChartForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChartForm.Designer.cs">
+    <Compile Include="Forms\ChartForm.Designer.cs">
       <DependentUpon>ChartForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Client.cs" />
     <Compile Include="Classes\ExtraOption.cs" />
     <Compile Include="Classes\ListViewColumnSorter.cs" />
     <Compile Include="Classes\Subscription.cs" />
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PrintForm.cs">
+    <Compile Include="Forms\PrintForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PrintForm.Designer.cs">
+    <Compile Include="Forms\PrintForm.Designer.cs">
       <DependentUpon>PrintForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="HelpForm.resx">
+    <EmbeddedResource Include="Forms\HelpForm.resx">
       <DependentUpon>HelpForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddEditClientForm.resx">
+    <EmbeddedResource Include="Forms\AddEditClientForm.resx">
       <DependentUpon>AddEditClientForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddEditExtraOptionForm.resx">
+    <EmbeddedResource Include="Forms\AddEditExtraOptionForm.resx">
       <DependentUpon>AddEditExtraOptionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChartForm.resx">
+    <EmbeddedResource Include="Forms\ChartForm.resx">
       <DependentUpon>ChartForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PrintForm.resx">
+    <EmbeddedResource Include="Forms\PrintForm.resx">
       <DependentUpon>PrintForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
