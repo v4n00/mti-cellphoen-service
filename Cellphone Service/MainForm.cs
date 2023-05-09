@@ -45,6 +45,8 @@ namespace Cellphone_Service
 
         private void EditClientBtn_Click(object sender, EventArgs e)
         {
+            if (ClientsTreeView.SelectedNode.Tag == null)
+                return;
             TreeNode node = ClientsTreeView.SelectedNode;
             if (node != null && node.Tag.GetType() == typeof(Client))
             {
@@ -65,6 +67,8 @@ namespace Cellphone_Service
 
         private void DeleteClientBtn_Click(object sender, EventArgs e)
         {
+            if (ClientsTreeView.SelectedNode.Tag == null)
+                return;
             TreeNode node = ClientsTreeView.SelectedNode;
             if (node != null && node.Tag.GetType() == typeof(Client))
             {
@@ -80,12 +84,16 @@ namespace Cellphone_Service
             if(dec == false)
             {
                 EditClientBtn.Enabled = false;
+                EditClientBtn.BackColor = Color.White;
                 DeleteClientBtn.Enabled = false;
+                DeleteClientBtn.BackColor = Color.White;
             }
             else
             {
                 EditClientBtn.Enabled = true;
+                EditClientBtn.BackColor = Color.Yellow;
                 DeleteClientBtn.Enabled = true;
+                DeleteClientBtn.BackColor = Color.Red;
             }
         }
 
@@ -95,6 +103,8 @@ namespace Cellphone_Service
 
         private void AddExtraOptionBtn_Click(object sender, EventArgs e)
         {
+            if (ClientsTreeView.SelectedNode.Tag == null)
+                return;
             TreeNode node = ClientsTreeView.SelectedNode;
             if (node != null && node.Tag.GetType() == typeof(Client))
             {
@@ -112,6 +122,8 @@ namespace Cellphone_Service
 
         private void EditExtraOptionBtn_Click(object sender, EventArgs e)
         {
+            if (ClientsTreeView.SelectedNode.Tag == null)
+                return;
             TreeNode node = ClientsTreeView.SelectedNode;
             if (node != null && node.Tag.GetType() == typeof(ExtraOption))
             {
@@ -127,8 +139,10 @@ namespace Cellphone_Service
 
         private void DeleteExtraOptionBtn_Click(object sender, EventArgs e)
         {
+            if (ClientsTreeView.SelectedNode.Tag == null)
+                return;
             TreeNode node = ClientsTreeView.SelectedNode;
-            if (node.Tag.GetType() == typeof(ExtraOption))
+            if (node != null && node.Tag.GetType() == typeof(ExtraOption))
             {
                 TreeNode parent = ClientsTreeView.SelectedNode.Parent.Parent;
                 if (node != null && parent.GetType() == typeof(Client))
@@ -147,14 +161,20 @@ namespace Cellphone_Service
             if(dec == false)
             {
                 AddExtraOptionBtn.Enabled = false;
+                AddExtraOptionBtn.BackColor = Color.White;
                 EditExtraOptionBtn.Enabled = false;
+                EditExtraOptionBtn.BackColor = Color.White;
                 DeleteExtraOptionBtn.Enabled = false;
+                DeleteExtraOptionBtn.BackColor = Color.White;
             }
             else
             {
                 AddExtraOptionBtn.Enabled = true;
+                AddExtraOptionBtn.BackColor = Color.Lime;
                 EditExtraOptionBtn.Enabled = true;
+                EditExtraOptionBtn.BackColor = Color.Yellow;
                 DeleteExtraOptionBtn.Enabled = true;
+                DeleteExtraOptionBtn.BackColor = Color.Red;
             }
         }
 
@@ -186,6 +206,7 @@ namespace Cellphone_Service
                 if (Clients[i].ExtraOptions.Count > 0)
                 {
                     TreeNode _extraOptions = new TreeNode("Extra Options");
+                    _extraOptions.Expand();
                     for (int j = 0; j < Clients[i].ExtraOptions.Count; j++)
                     {
                         TreeNode nawd = new TreeNode("Option - " + Clients[i].ExtraOptions[j].Name);
@@ -209,36 +230,34 @@ namespace Cellphone_Service
 
         private void ClientsTreeView_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            // this is utterly fucking retarded
-            // because the mouse event is not processed before this and because we clear the list
-            // everytime we display it, a bug occurs where the SelectedNode becomes null even though we click the node
-            // also if you click the plus button it counts as a node
-            this.BeginInvoke(new Action(() =>
-            {
-                if (ClientsTreeView.SelectedNode != null)
-                {
-                    if (ClientsTreeView.SelectedNode.Tag != null)
-                    {
-                        if (ClientsTreeView.SelectedNode.Tag.GetType() == typeof(Client))
-                        {
-                            setClientButtons(true);
-                            setExtraOptionButtons(false);
-                            AddExtraOptionBtn.Enabled = true;
-                        }
+            // this is retarded lmao
+            ClientsTreeView.SelectedNode = e.Node;
 
-                        if (ClientsTreeView.SelectedNode.Tag.GetType() == typeof(ExtraOption))
-                        {
-                            setClientButtons(false);
-                            setExtraOptionButtons(true);
-                            AddExtraOptionBtn.Enabled = false;
-                        }
-                    }
-                    else
+            if (ClientsTreeView.SelectedNode != null)
+            {
+                if (ClientsTreeView.SelectedNode.Tag != null)
+                {
+                    if (ClientsTreeView.SelectedNode.Tag.GetType() == typeof(Client))
                     {
-                        setAllButtons(false);
+                        setClientButtons(true);
+                        setExtraOptionButtons(false);
+                        AddExtraOptionBtn.Enabled = true;
+                        AddExtraOptionBtn.BackColor = Color.Lime;
+                    }
+
+                    if (ClientsTreeView.SelectedNode.Tag.GetType() == typeof(ExtraOption))
+                    {
+                        setClientButtons(false);
+                        setExtraOptionButtons(true);
+                        AddExtraOptionBtn.Enabled = false;
+                        AddExtraOptionBtn.BackColor = Color.White;
                     }
                 }
-            }));
+                else
+                {
+                    setAllButtons(false);
+                }
+            }
         }
 
         private void ClientsTreeView_Leave(object sender, EventArgs e)
@@ -299,28 +318,12 @@ namespace Cellphone_Service
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new AboutForm().ShowDialog();
+            new HelpForm().ShowDialog();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        Bitmap bmp;
-
-        private void printToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Graphics g = this.CreateGraphics();
-            bmp = new Bitmap(this.Size.Width, this.Size.Height, g);
-            Graphics mg = Graphics.FromImage(bmp);
-            mg.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, this.Size);
-            PrintPreviewDialog.ShowDialog();
-        }
-
-        private void PrintDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            e.Graphics.DrawImage(bmp, 0, 0);
         }
 
         #endregion
@@ -351,9 +354,43 @@ namespace Cellphone_Service
             form.ShowDialog();
         }
 
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            PrintForm printForm = new PrintForm(Clients);
+            printForm.ShowDialog();
+        }
+
         #endregion
 
         #region Context Strip Menu
+
+        private void ContextMenuStrip_Opened(object sender, EventArgs e)
+        {
+            editClientToolStripMenuItem.Enabled = false;
+            deleteClientToolStripMenuItem.Enabled = false;
+            addExtraOptionToolStripMenuItem.Enabled = false;
+            editExtraOptionToolStripMenuItem.Enabled = false;
+            deleteExtraOptionToolStripMenuItem.Enabled = false;
+
+            if (ClientsTreeView.SelectedNode != null)
+            {
+                if (ClientsTreeView.SelectedNode.Tag != null)
+                {
+                    if (ClientsTreeView.SelectedNode.Tag.GetType() == typeof(Client))
+                    {
+                        editClientToolStripMenuItem.Enabled = true;
+                        deleteClientToolStripMenuItem.Enabled = true;
+                        addExtraOptionToolStripMenuItem.Enabled = true;
+                    }
+
+                    if (ClientsTreeView.SelectedNode.Tag.GetType() == typeof(ExtraOption))
+                    {
+                        editExtraOptionToolStripMenuItem.Enabled = true;
+                        deleteExtraOptionToolStripMenuItem.Enabled = true;
+                    }
+                }
+            }
+        }
 
         private void reloadViewToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -362,14 +399,32 @@ namespace Cellphone_Service
 
         private void addClientToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Client client = new Client();
-            AddEditClientForm form = new AddEditClientForm(client);
-            if (DialogResult.OK == form.ShowDialog())
-            {
-                Clients.Add(client);
-                DisplayClients();
-                setAllButtons(false);
-            }
+            AddClientBtn_Click(sender, e);
+        }
+
+        private void editClientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditClientBtn_Click(sender, e);
+        }
+
+        private void deleteClientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteClientBtn_Click(sender, e);
+        }
+
+        private void addExtraOptionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddExtraOptionBtn_Click(sender, e);
+        }
+
+        private void editExtraOptionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditExtraOptionBtn_Click(sender, e);
+        }
+
+        private void deleteExtraOptionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteExtraOptionBtn_Click(sender, e);
         }
 
         #endregion

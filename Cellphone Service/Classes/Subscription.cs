@@ -10,8 +10,7 @@ namespace Cellphone_Service.Classes
     {
         Standard,
         Gold,
-        Platinum,
-        Titanium
+        Platinum
     }
 
     public enum _SubscriptionType

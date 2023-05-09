@@ -47,8 +47,7 @@
             this.chart.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart.Legends.Add(legend1);
-            this.chart.Location = new System.Drawing.Point(22, 7);
-            this.chart.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.chart.Location = new System.Drawing.Point(12, 4);
             this.chart.Name = "chart";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
@@ -56,7 +55,7 @@
             series1.Name = "Series";
             series1.YValuesPerPoint = 2;
             this.chart.Series.Add(series1);
-            this.chart.Size = new System.Drawing.Size(821, 596);
+            this.chart.Size = new System.Drawing.Size(448, 323);
             this.chart.TabIndex = 0;
             title1.Name = "TitleForDoughtnut";
             title1.Text = "Subscription Services Distribution";
@@ -64,9 +63,10 @@
             // 
             // ChangeViewBtn
             // 
-            this.ChangeViewBtn.Location = new System.Drawing.Point(22, 612);
+            this.ChangeViewBtn.Location = new System.Drawing.Point(12, 332);
+            this.ChangeViewBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ChangeViewBtn.Name = "ChangeViewBtn";
-            this.ChangeViewBtn.Size = new System.Drawing.Size(821, 48);
+            this.ChangeViewBtn.Size = new System.Drawing.Size(448, 26);
             this.ChangeViewBtn.TabIndex = 1;
             this.ChangeViewBtn.Text = "Change View";
             this.ChangeViewBtn.UseVisualStyleBackColor = true;
@@ -78,17 +78,17 @@
             // 
             // ChartForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 683);
+            this.ClientSize = new System.Drawing.Size(472, 370);
             this.Controls.Add(this.ChangeViewBtn);
             this.Controls.Add(this.chart);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ChartForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Statistics";
             ((System.ComponentModel.ISupportInitialize)(this.chart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.subscriptionBindingSource)).EndInit();
