@@ -7,12 +7,12 @@ With this app, you can effortlessly add clients, assign them subscriptions, and 
 Here are some key features of the application:  
 - Client Management: Easily add and manage clients within the app's intuitive user interface
 
-![](Cellphone%20Service/Resources/ss_main.png)
+&emsp; ![](Cellphone%20Service/Resources/ss_main.png)
 
 - Client Statistics: Gain valuable statistics and analytics about clients
 
-![](Cellphone%20Service/Resources/ss_statistics.png)
+&emsp; ![](Cellphone%20Service/Resources/ss_statistics.png)
 
 - Report Generation: Generate a detailed report
 
-![](Cellphone%20Service/Resources/ss_report.png)
+&emsp; ![](Cellphone%20Service/Resources/ss_report.png)
